@@ -1,0 +1,26 @@
+import time
+
+max_tries = 3
+wait_time = 15  # seconds — don't add 's' here, just a number
+
+while True:
+    guess = 0
+    tries = 0
+
+    while guess != 6 and tries < max_tries:
+        guess = int(input("Guess the number: "))
+        tries += 1
+
+        if guess != 6:
+            if tries < max_tries:
+                print('Wrong number, try again.')
+            else:
+                print('Sorry, you have now run out of tries! Please try again in 15 seconds.')
+        else:
+            print("You got it!")
+            break
+
+    if guess == 6:
+        break  # Correct guess, end the outer loop
+
+    time.sleep(wait_time)  # Wait 15 seconds before next round
